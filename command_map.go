@@ -3,11 +3,6 @@ package main
 import "fmt"
 
 func CommandMap(cfg *config) error {
-	if cfg.nextLocationsURL == nil {
-		fmt.Println("No locations more to show")
-		return nil
-	}
-
 	locationResp, err := cfg.pokeapiClient.GetLocationList(cfg.nextLocationsURL)
 
 	if err != nil {
