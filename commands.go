@@ -7,7 +7,7 @@ import (
 type Command struct {
 	name        string
 	description string
-	callback    func(*config) error
+	callback    func(*config, []string) error
 }
 
 func GetCommands() map[string]Command {
@@ -31,6 +31,11 @@ func GetCommands() map[string]Command {
 			name:        "map-back",
 			description: "Show the previous map",
 			callback:    CommandMapBack,
+		},
+		"explore": Command{
+			name:        "explore",
+			description: "Explore the map",
+			callback:    Explore,
 		},
 	}
 }

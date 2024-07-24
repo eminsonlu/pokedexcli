@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func CommandMap(cfg *config) error {
+func CommandMap(cfg *config, parameters []string) error {
 	locationResp, err := cfg.pokeapiClient.GetLocationList(cfg.nextLocationsURL)
 
 	if err != nil {
@@ -19,7 +19,7 @@ func CommandMap(cfg *config) error {
 	return nil
 }
 
-func CommandMapBack(cfg *config) error {
+func CommandMapBack(cfg *config, parameters []string) error {
 	if cfg.prevLocationsURL == nil {
 		fmt.Println("No previous locations")
 		return nil

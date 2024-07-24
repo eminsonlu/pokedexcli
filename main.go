@@ -30,13 +30,14 @@ func main() {
 		}
 
 		command, exist := GetCommands()[cleanedCommand[0]]
+		paramaters := cleanedCommand[1:]
 
 		if !exist {
 			fmt.Println("Command not found")
 			continue
 		}
 
-		err := command.callback(cfg)
+		err := command.callback(cfg, paramaters)
 
 		if err != nil {
 			fmt.Println("Error:", err)
